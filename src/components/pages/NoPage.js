@@ -1,5 +1,5 @@
 import {Button, Result} from "antd";
-import LayoutComponent from "../components/layout/LayoutComponent";
+import LayoutComponent from "../layout/LayoutComponent";
 
 const NoPage = () => {
     return (

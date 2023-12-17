@@ -1,15 +1,19 @@
 import {Badge, Menu, Space, theme} from "antd";
 import React from "react";
 import {BellOutlined, BulbOutlined, FormOutlined, UserOutlined} from "@ant-design/icons";
+import {useNavigate} from "react-router-dom";
 
 const MenuComponent = () => {
+    const navigate = useNavigate();
     const {
         token: {colorBgContainer},
     } = theme.useToken();
+
     return (
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['2']}>
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={[window.location.pathname]}>
             <Menu.Item
-                key={"1"}
+                key={"/account"}
+                onClick={() => navigate("/account")}
             >
                 <UserOutlined
                     style={{
@@ -25,7 +29,8 @@ const MenuComponent = () => {
                 </Space>
             </Menu.Item>
             <Menu.Item
-                key={"2"}
+                key={"/"}
+                onClick={() => navigate("/")}
             >
                 <FormOutlined
                     style={{
@@ -41,7 +46,8 @@ const MenuComponent = () => {
                 </Space>
             </Menu.Item>
             <Menu.Item
-                key={"3"}
+                key={"/propose"}
+                onClick={() => navigate("/propose")}
             >
                 <BulbOutlined
                     style={{
@@ -57,7 +63,8 @@ const MenuComponent = () => {
                 </Space>
             </Menu.Item>
             <Menu.Item
-                key={"4"}
+                key={"/notify"}
+                onClick={() => navigate("/notify")}
             >
                 <Badge
                     count={1}

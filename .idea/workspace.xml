@@ -5,19 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1179b752-efdf-47bb-a963-682a51fde787" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/layout/LayoutComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/layout/content/CollapsedComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/layout/content/ContentComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/layout/sider/MenuComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/layout/sider/SiderComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/HomePage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/NoPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/Api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/UseFetch.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/common/PaginationComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/layout/content/affix/CategoryComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/home/HomePage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/home/ListObjectComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/home/SearchComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/content/CollapsedComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/content/affix/AffixComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/content/ContentComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/content/ContentComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/sider/MenuComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/sider/MenuComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/sider/SiderComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/sider/SiderComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/HomePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/NoPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/NoPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,9 +62,11 @@
       <recent name="D:\reviewx_fe_guest_reactjs\src\assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\reviewx_fe_guest_reactjs\src\components\layout" />
+      <recent name="D:\reviewx_fe_guest_reactjs\src\components\pages\home" />
+      <recent name="D:\reviewx_fe_guest_reactjs\src\components\pages" />
       <recent name="D:\reviewx_fe_guest_reactjs\src\components" />
-      <recent name="D:\reviewx_fe_guest_reactjs\src\component\layout\sider" />
+      <recent name="D:\reviewx_fe_guest_reactjs\src\api" />
+      <recent name="D:\reviewx_fe_guest_reactjs\src\components\layout\content\affix" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -73,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1702657314818</updated>
       <workItem from="1702657316780" duration="319000" />
-      <workItem from="1702692837836" duration="9078000" />
+      <workItem from="1702692837836" duration="34951000" />
     </task>
     <servers />
   </component>

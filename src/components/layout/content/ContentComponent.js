@@ -1,6 +1,6 @@
 import React from 'react';
 import {Layout, theme} from 'antd';
-import CollapsedComponent from "./CollapsedComponent";
+import AffixComponent from "./affix/AffixComponent";
 
 const {Content} = Layout;
 const ContentComponent = ({children, clickCollapsed, collapsed}) => {
@@ -9,11 +9,11 @@ const ContentComponent = ({children, clickCollapsed, collapsed}) => {
     } = theme.useToken();
     return (
         <Layout>
-            <CollapsedComponent clickCollapsed={clickCollapsed} collapsed={collapsed}/>
+            <AffixComponent clickCollapsed={clickCollapsed} collapsed={collapsed}/>
             <Content>
                 <div
                     style={{
-                        padding: "0 20px 20px 20px",
+                        padding: 16,
                         minHeight: 360,
                         background: colorBgContainer,
                     }}

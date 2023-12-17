@@ -10,10 +10,8 @@ const SiderComponent = ({responseCollapsed, collapsed}) => {
             breakpoint="lg"
             collapsedWidth="1"
             onBreakpoint={(broken) => {
-                console.log(broken);
             }}
             onCollapse={(collapsed, type) => {
-                console.log(collapsed, type);
                 responseCollapsed(collapsed)
             }}
             collapsed={collapsed}
