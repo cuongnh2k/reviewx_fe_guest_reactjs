@@ -16,7 +16,7 @@ const CategoryComponent = () => {
     const onSelect = (title, object) => {
         setValue(object.title);
         let id = "";
-        treeData && treeData.forEach(o => {
+        treeData && treeData.data.forEach(o => {
             if (o.id === object.value) {
                 id = o.id
             }
@@ -57,7 +57,7 @@ const CategoryComponent = () => {
                 allowClear
                 treeDefaultExpandAll
                 onSelect={onSelect}
-                treeData={treeData && treeData.map(o =>
+                treeData={treeData && treeData.data.map(o =>
                     (
                         {
                             value: o.id,

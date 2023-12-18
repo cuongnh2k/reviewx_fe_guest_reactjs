@@ -12,7 +12,7 @@ const UseFetch = (api, params = "", body = null, condition = []) => {
                 headers: {
                     "Content-Type": api.contentType,
                     "Api-Key": process.env.REACT_APP_API_KEY,
-                    "Authentication": `Bearer ${localStorage.getItem("token")}`
+                    "Authorization": localStorage.getItem("token")
                 },
                 body: body
             }
@@ -22,7 +22,7 @@ const UseFetch = (api, params = "", body = null, condition = []) => {
                 if (!data.success && data.errorCode === 401) {
                     navigate("/account")
                 }
-                setData(data.data)
+                setData(data)
             });
     }, condition);
 

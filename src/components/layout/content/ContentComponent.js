@@ -14,7 +14,7 @@ const ContentComponent = ({children, clickCollapsed, collapsed}) => {
                 <div
                     style={{
                         padding: 16,
-                        minHeight: 360,
+                        minHeight: 600,
                         background: colorBgContainer,
                     }}
                 >

@@ -28,9 +28,9 @@ const HomePage = () => {
         <LayoutComponent>
             <SearchComponent search={(value) => setSearch(value)}/>
             <Divider/>
-            <ListObjectComponent listObject={listObject}/>
+            <ListObjectComponent listObject={listObject && listObject.data}/>
             <Divider/>
-            <PaginationComponent listObject={listObject} onChange={onChange}/>
+            <PaginationComponent listObject={listObject && listObject.data} onChange={onChange}/>
         </LayoutComponent>
     )
 }
