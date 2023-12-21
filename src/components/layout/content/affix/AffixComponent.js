@@ -8,27 +8,29 @@ const AffixComponent = ({clickCollapsed, collapsed}) => {
         <Affix
             offsetTop={0}
         >
-            <Flex
-                onClick={() => clickCollapsed()}
-            >
-                {collapsed
-                    ? <MenuUnfoldOutlined
-                        style={{
-                            fontSize: 24,
-                            width: "100%",
-                            background: "white",
-                        }}
-                    />
-                    : <MenuFoldOutlined
-                        style={{
-                            fontSize: 24,
-                            width: "100%",
-                            background: "white",
-                        }}
-                    />
-                }
-            </Flex>
-            <CategoryComponent/>
+            <div>
+                <Flex
+                    onClick={() => clickCollapsed()}
+                >
+                    {collapsed
+                        ? <MenuUnfoldOutlined
+                            style={{
+                                fontSize: 24,
+                                width: "100%",
+                                background: "white",
+                            }}
+                        />
+                        : <MenuFoldOutlined
+                            style={{
+                                fontSize: 24,
+                                width: "100%",
+                                background: "white",
+                            }}
+                        />
+                    }
+                </Flex>
+                <CategoryComponent/>
+            </div>
         </Affix>
     )
 }

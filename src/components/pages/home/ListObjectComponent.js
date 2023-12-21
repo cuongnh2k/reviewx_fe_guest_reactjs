@@ -3,17 +3,19 @@ import {Card, Col, Empty, Image, Row, Space, Typography} from "antd";
 const {Paragraph} = Typography;
 const ListObjectComponent = ({listObject}) => {
     return (
-        (listObject && listObject.content && listObject.content.length !== 0) ?
+        (listObject && listObject.data.content.length !== 0) ?
             <Row
                 style={{
                     margin: "-16px -8px -16px -8px"
                 }}
             >
-                {listObject.content.map(o =>
-                    <Col className="gutter-row" xs={24} sm={12} md={6} lg={4}
-                         style={{
-                             padding: "30px 8px",
-                         }}
+                {listObject && listObject.data.content.map(o =>
+                    <Col
+                        key={o.id}
+                        className="gutter-row" xs={24} sm={12} md={6} lg={4}
+                        style={{
+                            padding: "30px 8px",
+                        }}
                     >
                         <Card
                             style={{
