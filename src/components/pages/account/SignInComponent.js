@@ -1,15 +1,19 @@
 import React, {useState} from 'react';
 import {Button, Card, Flex, Form, Input} from 'antd';
 import TabComponent from "../../common/TabComponent";
+import UseFetch from "../../../api/UseFetch";
+import Api from "../../../api/Api";
 
-const SignUpComponent = ({activeKey, onChangeTab, handleRefresh}) => {
+const SignInComponent = ({activeKey, onChangeTab, handleRefresh}) => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("");
     const [call, setCall] = useState(0)
 
-    const login = null
+    const login = UseFetch(Api.bAuthsSignInPOST, "", JSON.stringify({email: email, password: password}), [call])
+    console.log(login)
     if (login && login.success) {
         localStorage.setItem("token", `Bearer ${login.data.token}`)
+        window.location.reload(true);
     }
 
     const onFinish = (values) => {
@@ -34,10 +38,10 @@ const SignUpComponent = ({activeKey, onChangeTab, handleRefresh}) => {
                 <Form
                     name="basic"
                     labelCol={{
-                        span: 7,
+                        span: 4,
                     }}
                     wrapperCol={{
-                        span: 17,
+                        span: 20,
                     }}
                     initialValues={{
                         remember: true,
@@ -47,18 +51,6 @@ const SignUpComponent = ({activeKey, onChangeTab, handleRefresh}) => {
                     autoComplete="off"
                 >
                     <TabComponent onChangeTab={onChangeTab} activeKey={activeKey}/>
-                    <Form.Item
-                        label="Tên"
-                        name="name"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Vui lòng nhập tên',
-                            },
-                        ]}
-                    >
-                        <Input/>
-                    </Form.Item>
                     <Form.Item
                         label="Email"
                         name="email"
@@ -87,21 +79,8 @@ const SignUpComponent = ({activeKey, onChangeTab, handleRefresh}) => {
                         <Input.Password/>
                     </Form.Item>
                     <Form.Item
-                        label="Xác nhận mật khẩu"
-                        name="password"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Mật khẩu từ 8-16 ký tự. Chứa ít nhất 1 ký tự in hoa, 1 ký tự thường, 1 ký tự số, 1 ký tự ặc biệt',
-                                pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W])[A-Za-z\d\W]{8,16}$/
-                            },
-                        ]}
-                    >
-                        <Input.Password/>
-                    </Form.Item>
-                    <Form.Item
                         wrapperCol={{
-                            offset: 10,
+                            offset: 11,
                         }}
                     >
                         <Button
@@ -116,4 +95,4 @@ const SignUpComponent = ({activeKey, onChangeTab, handleRefresh}) => {
         </Flex>
     )
 }
-export default SignUpComponent
+export default SignInComponent

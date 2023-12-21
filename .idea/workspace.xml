@@ -7,9 +7,16 @@
     <list default="true" id="1179b752-efdf-47bb-a963-682a51fde787" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/common/PaginationComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/PaginationComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/content/affix/AffixComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/content/affix/AffixComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/TabComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/TabComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/content/ContentComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/content/ContentComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/account/AccountPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/account/AccountPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/account/ActiveComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/account/ActiveComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/account/LogInComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/account/SignInComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/account/ResetPasswordComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/account/ResetPasswordComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/account/SignUpComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/account/SignUpComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pages/home/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/home/HomePage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pages/home/ListObjectComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/home/ListObjectComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/notify/NotifyPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/notify/NotifyPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +80,7 @@
       <workItem from="1702874518927" duration="3937000" />
       <workItem from="1702949400242" duration="5696000" />
       <workItem from="1703143676599" duration="15000" />
-      <workItem from="1703144722010" duration="3542000" />
+      <workItem from="1703144722010" duration="6065000" />
     </task>
     <servers />
   </component>

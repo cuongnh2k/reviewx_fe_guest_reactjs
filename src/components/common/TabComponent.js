@@ -10,20 +10,12 @@ const TabComponent = ({activeKey, onChangeTab}) => {
             items={
                 [
                     {
-                        label: `Quên mật khẩu`,
-                        key: "1",
-                    },
-                    {
-                        label: `Kích hoạt`,
-                        key: "2"
-                    },
-                    {
                         label: `Đăng nhập`,
-                        key: "3",
+                        key: "sign-in",
                     },
                     {
                         label: `Đăng ký`,
-                        key: "4"
+                        key: "sign-up"
                     },
                 ]
             }

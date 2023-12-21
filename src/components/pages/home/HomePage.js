@@ -14,7 +14,7 @@ const HomePage = () => {
     const [page, setPage] = useState(1);
     const [pageSize, setPageSize] = useState(10);
 
-    let listObject = useFetch(Api.bObjectsV2GET,
+    let listData = useFetch(Api.bObjectsV2GET,
         `?categoryId=${searchParams.get("categoryId")}&name=${search}&pageNumber=${page - 1}&pageSize=${pageSize}`,
         null,
         [search, searchParams, page, pageSize]);
@@ -28,9 +28,9 @@ const HomePage = () => {
         <LayoutComponent>
             <SearchComponent search={(value) => setSearch(value)}/>
             <Divider/>
-            <ListObjectComponent listObject={listObject}/>
+            <ListObjectComponent listData={listData}/>
             <Divider/>
-            <PaginationComponent listObject={listObject} onChange={onChange}/>
+            <PaginationComponent listData={listData} onChange={onChange}/>
         </LayoutComponent>
     )
 }

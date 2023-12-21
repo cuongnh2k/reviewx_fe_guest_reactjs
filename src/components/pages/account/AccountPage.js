@@ -3,21 +3,16 @@ import {useState} from "react";
 import ResetPasswordComponent from "./ResetPasswordComponent";
 import ActiveComponent from "./ActiveComponent";
 import {Divider} from "antd";
-import LogInComponent from "./LogInComponent";
+import SignInComponent from "./SignInComponent";
 import SignUpComponent from "./SignUpComponent";
 import UpdateAccountComponent from "./UpdateAccountComponent";
 
 const AccountPage = () => {
-    const [activeKey, setActiveKey] = useState("3")
+    const [activeKey, setActiveKey] = useState("sign-in")
     const token = localStorage.getItem("token")
-    const [refresh, setRefresh] = useState(0)
 
     const onChangeTab = (activeKey) => {
         setActiveKey(activeKey)
-    }
-
-    const handleRefresh = () => {
-        setRefresh(Math.random)
     }
 
     if (token) {
@@ -33,29 +28,28 @@ const AccountPage = () => {
             return (
                 <LayoutComponent>
                     <Divider/>
-                    <ResetPasswordComponent onChangeTab={onChangeTab} activeKey={activeKey}
-                                            handleRefresh={handleRefresh}/>
+                    <ResetPasswordComponent onChangeTab={onChangeTab} activeKey={activeKey}/>
                 </LayoutComponent>
             )
         case "2":
             return (
                 <LayoutComponent>
                     <Divider/>
-                    <ActiveComponent onChangeTab={onChangeTab} activeKey={activeKey} handleRefresh={handleRefresh}/>
+                    <ActiveComponent onChangeTab={onChangeTab} activeKey={activeKey}/>
                 </LayoutComponent>
             )
-        case "3":
+        case "sign-in":
             return (
                 <LayoutComponent>
                     <Divider/>
-                    <LogInComponent onChangeTab={onChangeTab} activeKey={activeKey} handleRefresh={handleRefresh}/>
+                    <SignInComponent onChangeTab={onChangeTab} activeKey={activeKey}/>
                 </LayoutComponent>
             )
-        case "4":
+        case "sign-up":
             return (
                 <LayoutComponent>
                     <Divider/>
-                    <SignUpComponent onChangeTab={onChangeTab} activeKey={activeKey} handleRefresh={handleRefresh}/>
+                    <SignUpComponent onChangeTab={onChangeTab} activeKey={activeKey}/>
                 </LayoutComponent>
             )
     }

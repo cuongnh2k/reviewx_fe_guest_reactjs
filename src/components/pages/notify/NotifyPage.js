@@ -9,7 +9,7 @@ const NotifyPage = () => {
     const [page, setPage] = useState(1);
     const [pageSize, setPageSize] = useState(10);
 
-    const listNotify = UseFetch(Api.uNotificationsGET, `?pageNumber=${page - 1}&pageSize=${pageSize}`, null, [page, pageSize])
+    const listData = UseFetch(Api.uNotificationsGET, `?pageNumber=${page - 1}&pageSize=${pageSize}`, null, [page, pageSize])
 
     const onChange = (page, pageSize) => {
         setPage(page)
@@ -22,7 +22,7 @@ const NotifyPage = () => {
             <List
                 size="small"
                 itemLayout="horizontal"
-                dataSource={listNotify && listNotify.data.content || []}
+                dataSource={listData && listData.data.content || []}
                 renderItem={(item, index) => (
                     <List.Item
                         style={{
@@ -34,7 +34,7 @@ const NotifyPage = () => {
                 )}
             />
             <Divider/>
-            <PaginationComponent listObject={listNotify && listNotify.data} onChange={onChange}/>
+            <PaginationComponent listObject={listData} onChange={onChange}/>
         </LayoutComponent>
     )
 }
