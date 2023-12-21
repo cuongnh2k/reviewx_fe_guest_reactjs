@@ -5,6 +5,7 @@ import ActiveComponent from "./ActiveComponent";
 import {Divider} from "antd";
 import LogInComponent from "./LogInComponent";
 import SignUpComponent from "./SignUpComponent";
+import UpdateAccountComponent from "./UpdateAccountComponent";
 
 const AccountPage = () => {
     const [activeKey, setActiveKey] = useState("3")
@@ -22,8 +23,7 @@ const AccountPage = () => {
     if (token) {
         return (
             <LayoutComponent>
-                <Divider/>
-                <div>account</div>
+                <UpdateAccountComponent/>
             </LayoutComponent>
         )
     }
@@ -33,7 +33,8 @@ const AccountPage = () => {
             return (
                 <LayoutComponent>
                     <Divider/>
-                    <ResetPasswordComponent onChangeTab={onChangeTab} activeKey={activeKey} handleRefresh={handleRefresh}/>
+                    <ResetPasswordComponent onChangeTab={onChangeTab} activeKey={activeKey}
+                                            handleRefresh={handleRefresh}/>
                 </LayoutComponent>
             )
         case "2":

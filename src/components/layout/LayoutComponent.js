@@ -5,6 +5,7 @@ import ContentComponent from "./content/ContentComponent";
 
 const LayoutComponent = ({children}) => {
     const [collapsed, setCollapsed] = useState(false);
+
     const clickCollapsed = () => {
         setCollapsed(!collapsed)
     }
