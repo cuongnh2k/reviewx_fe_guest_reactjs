@@ -1,15 +1,15 @@
 import {Card, Col, Empty, Image, Row, Space, Typography} from "antd";
 
 const {Paragraph} = Typography;
-const ListObjectComponent = ({listData}) => {
+const ListObjectComponent = ({data}) => {
     return (
-        (listData && listData.data.content.length !== 0) ?
+        (data.result && data.result.content.length !== 0) ?
             <Row
                 style={{
                     margin: "-16px -8px -16px -8px"
                 }}
             >
-                {listData && listData.data.content.map(o =>
+                {data.result && data.result.content.map(o =>
                     <Col
                         key={o.id}
                         className="gutter-row" xs={24} sm={12} md={6} lg={4}

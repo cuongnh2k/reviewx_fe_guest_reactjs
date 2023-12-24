@@ -1,7 +1,7 @@
 import LayoutComponent from "../../layout/LayoutComponent";
 import SearchComponent from "./SearchComponent";
-import {useState} from "react";
-import useFetch from "../../../api/UseFetch";
+import {useEffect, useState} from "react";
+import UseFetch from "../../../hooks/UseFetch";
 import Api from "../../../api/Api";
 import {useSearchParams} from "react-router-dom";
 import ListObjectComponent from "./ListObjectComponent";
@@ -9,28 +9,33 @@ import {Divider} from "antd";
 import PaginationComponent from "../../common/PaginationComponent";
 
 const HomePage = () => {
-    const [search, setSearch] = useState("");
+    const [data, setData] = useState({loading: false, result: null})
+    const [search, setSearch] = useState({name: "", pageNumber: 1, pageSize: 10});
     const [searchParams] = useSearchParams();
-    const [page, setPage] = useState(1);
-    const [pageSize, setPageSize] = useState(10);
+    const categoryId = searchParams.get("categoryId")
 
-    let listData = useFetch(Api.bObjectsV2GET,
-        `?categoryId=${searchParams.get("categoryId")}&name=${search}&pageNumber=${page - 1}&pageSize=${pageSize}`,
-        null,
-        [search, searchParams, page, pageSize]);
+    useEffect(() => {
+        const fetchAPI = async () => {
+            setData(o => ({...o, loading: true}))
+            const response = await UseFetch(Api.bObjectsV2GET,
+                `?categoryId=${categoryId}&name=${search.name}&pageNumber=${search.pageNumber - 1}&pageSize=${search.pageSize}`)
+            const data = await response.json();
+            setData(o => ({...o, loading: false, result: data.data}))
+        }
+        fetchAPI()
+    }, [search]);
 
     const onChange = (page, pageSize) => {
-        setPage(page)
-        setPageSize(pageSize)
+        setSearch(o => ({...o, pageNumber: page, pageSize: pageSize}))
     }
 
     return (
         <LayoutComponent>
-            <SearchComponent search={(value) => setSearch(value)}/>
+            <SearchComponent search={value => setSearch(o => ({...o, name: value}))}/>
             <Divider/>
-            <ListObjectComponent listData={listData}/>
+            <ListObjectComponent data={data}/>
             <Divider/>
-            <PaginationComponent listData={listData} onChange={onChange}/>
+            <PaginationComponent data={data} onChange={onChange}/>
         </LayoutComponent>
     )
 }

@@ -1,13 +1,15 @@
 import {Badge, Menu, theme} from "antd";
-import React from "react";
+import React, {useState} from "react";
 import {BellOutlined, BulbOutlined, FormOutlined, UserOutlined} from "@ant-design/icons";
 import {useNavigate} from "react-router-dom";
 
 const MenuComponent = () => {
     const navigate = useNavigate();
+
     const {
         token: {colorBgContainer},
     } = theme.useToken();
+
     const items = [
         {
             label: (<p onClick={() => navigate("/account")}>Tài khoản</p>),

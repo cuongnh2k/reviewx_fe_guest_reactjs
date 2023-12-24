@@ -1,34 +1,54 @@
-import React, {useState} from 'react';
-import {Button, Card, Flex, Form, Input} from 'antd';
-import TabComponent from "../../common/TabComponent";
-import UseFetch from "../../../api/UseFetch";
-import Api from "../../../api/Api";
+import React, {useEffect, useState} from 'react'
+import {Button, Card, Flex, Form, Input, message} from 'antd'
+import TabComponent from "../../common/TabComponent"
+import UseFetch from "../../../hooks/UseFetch"
+import Api from "../../../api/Api"
+import {useNavigate} from "react-router-dom";
 
-const SignInComponent = ({activeKey, onChangeTab, handleRefresh}) => {
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("");
-    const [call, setCall] = useState(0)
+const SignInComponent = ({activeKey, onChangeTab, onLogin}) => {
+    const [data, setData] = useState({loading: false, result: null})
+    const [login, setLogin] = useState({email: "", password: ""})
+    const [messageApi, contextHolder] = message.useMessage()
+    const navigate = useNavigate()
 
-    const login = UseFetch(Api.bAuthsSignInPOST, "", JSON.stringify({email: email, password: password}), [call])
-    console.log(login)
-    if (login && login.success) {
-        localStorage.setItem("token", `Bearer ${login.data.token}`)
-        window.location.reload(true);
-    }
+    useEffect(() => {
+            if (login.email !== "" && login.password !== "") {
+                setData(o => ({...o, loading: true}))
+                const fetchAPI = async () => {
+                    const response = await UseFetch(Api.bAuthsSignInPOST,
+                        "",
+                        JSON.stringify({
+                            email: login.email,
+                            password: login.password
+                        }))
+                    const data = await response.json();
+                    setData(o => ({...o, loading: false}))
+                    if (data.success) {
+                        localStorage.setItem("token", `Bearer ${data.data.token}`)
+                        onLogin(true)
+                    } else {
+                        messageApi.open({
+                            type: 'error',
+                            content: 'Đăng nhập thất bại',
+                            duration: 1,
+                        });
+                    }
+                }
+                fetchAPI()
+            }
+        }, [login]
+    )
 
     const onFinish = (values) => {
-        setEmail(values.email)
-        setPassword(values.password)
-        setCall(Math.random())
-        console.log(values)
+        setLogin({email: values.email, password: values.password})
     };
-    const onFinishFailed = (errorInfo) => {
-        console.log(errorInfo)
+    const onFinishFailed = () => {
     };
     return (
         <Flex
             justify="center"
         >
+            {contextHolder}
             <Card
                 style={{
                     width: "100%",
@@ -84,6 +104,7 @@ const SignInComponent = ({activeKey, onChangeTab, handleRefresh}) => {
                         }}
                     >
                         <Button
+                            disabled={data.loading}
                             type="primary"
                             htmlType="submit"
                         >

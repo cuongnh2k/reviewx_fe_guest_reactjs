@@ -1,22 +1,31 @@
-import React, {useState} from 'react';
-import {Flex, theme, TreeSelect} from 'antd';
-import useFetch from "../../../../api/UseFetch";
-import Api from "../../../../api/Api";
-import {useSearchParams} from "react-router-dom";
+import React, {useEffect, useState} from 'react'
+import {Flex, theme, TreeSelect} from 'antd'
+import UseFetch from "../../../../hooks/UseFetch"
+import Api from "../../../../api/Api"
+import {useSearchParams} from "react-router-dom"
 
 const CategoryComponent = () => {
-    const [value, setValue] = useState();
-    const [, setSearchParams] = useSearchParams();
-
-    let treeData = useFetch(Api.bCategoriesGET);
-
+    const [data, setData] = useState({loading: false, result: null})
+    const [value, setValue] = useState()
+    const [, setSearchParams] = useSearchParams()
     const {
         token: {colorBgContainer},
-    } = theme.useToken();
+    } = theme.useToken()
+
+    useEffect(() => {
+        const fetchAPI = async () => {
+            setData(o => ({...o, loading: true}))
+            const response = await UseFetch(Api.bCategoriesGET)
+            const data = await response.json();
+            setData(o => ({...o, loading: false, result: data.data}))
+        }
+        fetchAPI()
+    }, [])
+
     const onSelect = (title, object) => {
         setValue(object.title);
         let id = "";
-        treeData && treeData.data.forEach(o => {
+        data.result && data.result.forEach(o => {
             if (o.id === object.value) {
                 id = o.id
             }
@@ -32,7 +41,8 @@ const CategoryComponent = () => {
             })
         })
         setSearchParams({categoryId: id});
-    };
+    }
+
     return (
         <Flex
             justify="center"
@@ -43,7 +53,7 @@ const CategoryComponent = () => {
             }}
         >
             <TreeSelect
-                showSearch
+                // showSearch
                 style={{
                     width: '100%',
                     maxWidth: 500
@@ -55,9 +65,9 @@ const CategoryComponent = () => {
                 }}
                 placeholder="Chọn danh mục"
                 allowClear
-                treeDefaultExpandAll
+                // treeDefaultExpandAll
                 onSelect={onSelect}
-                treeData={treeData && treeData.data.map(o =>
+                treeData={data.result && data.result.map(o =>
                     (
                         {
                             value: o.id,
@@ -82,6 +92,6 @@ const CategoryComponent = () => {
                 }
             />
         </Flex>
-    );
+    )
 }
 export default CategoryComponent
