@@ -1,60 +1,82 @@
 import LayoutComponent from "../../layout/LayoutComponent";
 import {useState} from "react";
-import {Divider} from "antd";
+import {Divider, message} from "antd";
 import SignInComponent from "./SignInComponent";
 import SignUpComponent from "./SignUpComponent";
 import UpdateAccountComponent from "./UpdateAccountComponent";
+import ResetPasswordComponent from "./ResetPasswordComponent";
+import ActiveAccountComponent from "./ActiveAccountComponent";
 
 const AccountPage = () => {
-    const [activeKey, setActiveKey] = useState("sign-in")
-    const [login, setLogin] = useState(false)
+    const [account, setAccount] = useState({
+        activeKey: "sign-in",
+        signIn: false,
+        signUpEmail: "",
+        activeAccountEmail: "",
+        resetPasswordEmail: ""
+    })
     const token = localStorage.getItem("token")
+    const [messageApi, contextHolder] = message.useMessage()
 
     const onChangeTab = (activeKey) => {
-        setActiveKey(activeKey)
+        setAccount(o => ({...o, activeKey: activeKey}))
     }
 
-    const onLogin = (value) => {
-        setLogin(value)
+    const onSignIn = (value) => {
+        setAccount(o => ({...o, signIn: value}))
     }
 
-    if (token) {
-        return (
-            <LayoutComponent>
-                <UpdateAccountComponent/>
-            </LayoutComponent>
-        )
+    const onSignUp = (value) => {
+        setAccount(o => ({...o, activeKey: "active-account", signUpEmail: value}))
     }
 
-    switch (activeKey) {
-        // case "1":
-        //     return (
-        //         <LayoutComponent>
-        //             <Divider/>
-        //             <ResetPasswordComponent onChangeTab={onChangeTab} activeKey={activeKey}/>
-        //         </LayoutComponent>
-        //     )
-        // case "2":
-        //     return (
-        //         <LayoutComponent>
-        //             <Divider/>
-        //             <ActiveComponent onChangeTab={onChangeTab} activeKey={activeKey}/>
-        //         </LayoutComponent>
-        //     )
-        case "sign-in":
-            return (
-                <LayoutComponent>
-                    <Divider/>
-                    <SignInComponent onChangeTab={onChangeTab} activeKey={activeKey} onLogin={onLogin}/>
-                </LayoutComponent>
-            )
-        case "sign-up":
-            return (
-                <LayoutComponent>
-                    <Divider/>
-                    <SignUpComponent onChangeTab={onChangeTab} activeKey={activeKey}/>
-                </LayoutComponent>
-            )
+    const onActiveAccount = (value) => {
+        setAccount(o => ({...o, activeKey: "sign-in", activeAccountEmail: value}))
     }
+
+    const onResetPassword = (value) => {
+        setAccount(o => ({...o, activeKey: "sign-in", resetPasswordEmail: value}))
+    }
+
+    return (
+        <LayoutComponent>
+            {contextHolder}
+            <Divider/>
+            {token
+                ? <UpdateAccountComponent/>
+                : (account.activeKey === "reset-password"
+                        ? <ResetPasswordComponent
+                            onChangeTab={onChangeTab}
+                            onResetPassword={onResetPassword}
+                            account={account}
+                            messageApi={messageApi}
+                        />
+                        : (account.activeKey === "active-account"
+                                ? <ActiveAccountComponent
+                                    onChangeTab={onChangeTab}
+                                    onActiveAccount={onActiveAccount}
+                                    account={account}
+                                    messageApi={messageApi}
+                                />
+                                : (account.activeKey === "sign-in"
+                                        ? <SignInComponent
+                                            onChangeTab={onChangeTab}
+                                            onSignIn={onSignIn}
+                                            account={account}
+                                            messageApi={messageApi}
+                                        />
+                                        : (<SignUpComponent
+                                                onChangeTab={onChangeTab}
+                                                onSignUp={onSignUp}
+                                                account={account}
+                                                messageApi={messageApi}
+                                            />
+                                        )
+                                )
+                        )
+                )
+            }
+        </LayoutComponent>
+    )
 }
 export default AccountPage

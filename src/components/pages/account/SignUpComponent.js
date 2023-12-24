@@ -1,50 +1,48 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Card, Flex, Form, Input, message} from 'antd';
+import {Button, Card, Flex, Form, Input} from 'antd';
 import TabComponent from "../../common/TabComponent";
 import UseFetch from "../../../hooks/UseFetch";
 import Api from "../../../api/Api";
 
-const SignUpComponent = ({activeKey, onChangeTab}) => {
+const SignUpComponent = ({account, onChangeTab, messageApi, onSignUp}) => {
     const [data, setData] = useState({loading: false, result: null})
-    const [login, setLogin] = useState({email: "", password: ""})
-    const [messageApi, contextHolder] = message.useMessage()
+    const [signUp, setLogUp] = useState({name: "", email: "", password: ""})
 
     useEffect(() => {
-            if (login.email !== "" && login.password !== "") {
+            if (signUp.name !== "" && signUp.email !== "" && signUp.password !== "") {
                 setData(o => ({...o, loading: true}))
                 const fetchAPI = async () => {
-                    const response = await UseFetch(Api.bAuthsSignInPOST,
+                    const response = await UseFetch(Api.bAuthsSignUpPOST,
                         "",
                         JSON.stringify({
-                            email: login.email,
-                            password: login.password
+                            name: signUp.name,
+                            email: signUp.email,
+                            password: signUp.password
                         }))
                     const data = await response.json();
                     setData(o => ({...o, loading: false}))
                     if (data.success) {
-                        localStorage.setItem("token", `Bearer ${data.data.token}`)
                         messageApi.open({
                             type: 'success',
-                            content: 'Đăng nhập thành công',
-                            duration: 1,
+                            content: "Đăng ký thành công. Vui lòng kích hoạt tài khoản",
+                            duration: 3,
                         });
-                        setTimeout(null, 1000);
-                        window.location.reload(true);
+                        onSignUp(signUp.email)
                     } else {
                         messageApi.open({
                             type: 'error',
-                            content: 'Đăng nhập thất bại',
+                            content: 'Email đã tồn tại',
                             duration: 1,
                         });
                     }
                 }
                 fetchAPI()
             }
-        }, [login]
+        }, [signUp]
     )
 
     const onFinish = (values) => {
-        setLogin({email: values.email, password: values.password})
+        setLogUp({name: values.name, email: values.email, password: values.password})
     };
     const onFinishFailed = () => {
     };
@@ -52,20 +50,20 @@ const SignUpComponent = ({activeKey, onChangeTab}) => {
         <Flex
             justify="center"
         >
-            {contextHolder}
             <Card
                 style={{
                     width: "100%",
                     maxWidth: 500,
                 }}
             >
+                <TabComponent onChangeTab={onChangeTab} activeKey={account.activeKey}/>
                 <Form
                     name="basic"
                     labelCol={{
-                        span: 4,
+                        span: 7,
                     }}
                     wrapperCol={{
-                        span: 20,
+                        span: 17,
                     }}
                     initialValues={{
                         remember: true,
@@ -74,7 +72,19 @@ const SignUpComponent = ({activeKey, onChangeTab}) => {
                     onFinishFailed={onFinishFailed}
                     autoComplete="off"
                 >
-                    <TabComponent onChangeTab={onChangeTab} activeKey={activeKey}/>
+                    <Form.Item
+                        label="Tên"
+                        name="name"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Tên từ 1-50 ký tự',
+                                pattern: /^.{1,50}$/
+                            },
+                        ]}
+                    >
+                        <Input/>
+                    </Form.Item>
                     <Form.Item
                         label="Email"
                         name="email"
@@ -103,17 +113,66 @@ const SignUpComponent = ({activeKey, onChangeTab}) => {
                         <Input.Password/>
                     </Form.Item>
                     <Form.Item
-                        wrapperCol={{
-                            offset: 11,
+                        label="Nhập lại mật khẩu"
+                        dependencies={['password']}
+                        name="repassword"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Mật khẩu không khớp',
+                            },
+                            ({getFieldValue}) => ({
+                                validator(_, value) {
+                                    if (!value || getFieldValue('password') === value) {
+                                        return Promise.resolve();
+                                    }
+                                    return Promise.reject(new Error('Mật khẩu không khớp!'));
+                                },
+                            }),
+                        ]}
+                    >
+                        <Input.Password/>
+                    </Form.Item>
+                    <div
+                        onClick={o => onChangeTab("reset-password")}
+                        style={{
+                            margin: "0 auto",
+                            width: 96,
+                            marginBottom: 10
                         }}
                     >
-                        <Button
-                            disabled={data.loading}
-                            type="primary"
-                            htmlType="submit"
+                        Quên mật khẩu
+                    </div>
+                    <div
+                        onClick={o => onChangeTab("active-account")}
+                        style={{
+                            margin: "0 auto",
+                            width: 119,
+                            marginBottom: 20
+                        }}
+                    >
+                        Kích hoạt tài khoản
+                    </div>
+                    <Form.Item
+                        wrapperCol={{
+                            offset: 0,
+                            span: 24
+                        }}
+                    >
+                        <div
+                            style={{
+                                margin: "0 auto",
+                                width: 53
+                            }}
                         >
-                            Gửi
-                        </Button>
+                            <Button
+                                disabled={data.loading}
+                                type="primary"
+                                htmlType="submit"
+                            >
+                                Gửi
+                            </Button>
+                        </div>
                     </Form.Item>
                 </Form>
             </Card>
