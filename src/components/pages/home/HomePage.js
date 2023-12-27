@@ -12,7 +12,7 @@ const HomePage = () => {
     const [data, setData] = useState({loading: false, result: null})
     const [search, setSearch] = useState({name: "", pageNumber: 1, pageSize: 10});
     const [searchParams] = useSearchParams();
-    const categoryId = searchParams.get("categoryId")
+    const categoryId = searchParams.get("categoryId") || ""
 
     useEffect(() => {
         const fetchAPI = async () => {

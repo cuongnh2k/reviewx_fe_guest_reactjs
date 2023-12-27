@@ -3,7 +3,7 @@ import {useState} from "react";
 import {Divider, message} from "antd";
 import SignInComponent from "./SignInComponent";
 import SignUpComponent from "./SignUpComponent";
-import UpdateAccountComponent from "./UpdateAccountComponent";
+import UpdateAccountComponent from "./updateaccount/UpdateAccountComponent";
 import ResetPasswordComponent from "./ResetPasswordComponent";
 import ActiveAccountComponent from "./ActiveAccountComponent";
 
@@ -11,6 +11,7 @@ const AccountPage = () => {
     const [account, setAccount] = useState({
         activeKey: "sign-in",
         signIn: false,
+        signInActiveAccountEmail: "",
         signUpEmail: "",
         activeAccountEmail: "",
         resetPasswordEmail: ""
@@ -24,6 +25,10 @@ const AccountPage = () => {
 
     const onSignIn = (value) => {
         setAccount(o => ({...o, signIn: value}))
+    }
+
+    const onSignInActiveAccount = (value) => {
+        setAccount(o => ({...o, activeKey: "active-account", signInActiveAccountEmail: value}))
     }
 
     const onSignUp = (value) => {
@@ -43,7 +48,7 @@ const AccountPage = () => {
             {contextHolder}
             <Divider/>
             {token
-                ? <UpdateAccountComponent/>
+                ? <UpdateAccountComponent onChangeTab={onChangeTab}/>
                 : (account.activeKey === "reset-password"
                         ? <ResetPasswordComponent
                             onChangeTab={onChangeTab}
@@ -62,6 +67,7 @@ const AccountPage = () => {
                                         ? <SignInComponent
                                             onChangeTab={onChangeTab}
                                             onSignIn={onSignIn}
+                                            onSignInActiveAccount={onSignInActiveAccount}
                                             account={account}
                                             messageApi={messageApi}
                                         />

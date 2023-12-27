@@ -89,7 +89,7 @@ const ActiveAccountComponent = ({onChangeTab, onActiveAccount, account, messageA
                                 type: "email"
                             },
                         ]}
-                        initialValue={account.signUpEmail}
+                        initialValue={account.signUpEmail === "" ? account.signInActiveAccountEmail : account.signUpEmail}
                     >
                         <Input/>
                     </Form.Item>

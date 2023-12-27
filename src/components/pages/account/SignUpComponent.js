@@ -147,7 +147,7 @@ const SignUpComponent = ({account, onChangeTab, messageApi, onSignUp}) => {
                         onClick={o => onChangeTab("active-account")}
                         style={{
                             margin: "0 auto",
-                            width: 119,
+                            width: 120,
                             marginBottom: 20
                         }}
                     >

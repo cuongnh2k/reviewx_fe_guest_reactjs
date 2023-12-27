@@ -2,6 +2,7 @@ import {Card, Col, Empty, Image, Row, Space, Typography} from "antd";
 
 const {Paragraph} = Typography;
 const ListObjectComponent = ({data}) => {
+
     return (
         (data.result && data.result.content.length !== 0) ?
             <Row
@@ -22,10 +23,7 @@ const ListObjectComponent = ({data}) => {
                                 width: "100%",
                             }}
                             hoverable
-                            cover={<Image
-                                width="100%"
-                                src={o.avatar}
-                            />}
+                            cover={<img src={o.avatar} alt={o.name}/>}
                         >
                             <Paragraph ellipsis={true}>
                                 {o.name}

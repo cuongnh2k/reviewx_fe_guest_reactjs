@@ -4,7 +4,7 @@ import TabComponent from "../../common/TabComponent"
 import UseFetch from "../../../hooks/UseFetch"
 import Api from "../../../api/Api"
 
-const SignInComponent = ({account, onChangeTab, onSignIn, messageApi}) => {
+const SignInComponent = ({account, onChangeTab, onSignIn, onSignInActiveAccount, messageApi}) => {
     const [data, setData] = useState({loading: false, result: null})
     const [signIn, setSignIn] = useState({email: "", password: ""})
 
@@ -47,6 +47,7 @@ const SignInComponent = ({account, onChangeTab, onSignIn, messageApi}) => {
                                 content: 'Tài khoản chưa kích hoạt',
                                 duration: 1,
                             });
+                            onSignInActiveAccount(signIn.email)
                         }
                     }
                 }
@@ -128,7 +129,7 @@ const SignInComponent = ({account, onChangeTab, onSignIn, messageApi}) => {
                         onClick={o => onChangeTab("active-account")}
                         style={{
                             margin: "0 auto",
-                            width: 119,
+                            width: 120,
                             marginBottom: 20
                         }}
                     >
