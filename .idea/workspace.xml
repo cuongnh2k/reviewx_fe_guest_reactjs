@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1179b752-efdf-47bb-a963-682a51fde787" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/pages/account/updateaccount/UpdateAccountComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/pages/account/updateaccount/UpdatePasswordComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/account/updateaccount/UpdateAvatarComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/account/updateaccount/UpdateNameComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pages/account/AccountPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/account/AccountPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/account/ActiveAccountComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/account/ActiveAccountComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/account/ResetPasswordComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/account/ResetPasswordComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/account/SignInComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/account/SignInComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/account/SignUpComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/account/SignUpComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/account/UpdateAccountComponent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/home/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/home/HomePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/home/ListObjectComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/home/ListObjectComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/account/updateaccount/UpdateAccountComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/account/updateaccount/UpdateAccountComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/account/updateaccount/UpdatePasswordComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/account/updateaccount/UpdatePasswordComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,23 +32,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/reviewx_fe_guest_reactjs",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Software\\Jetbrains\\Intellij\\Install\\IntelliJ IDEA 2023.2.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/reviewx_fe_guest_reactjs/src/components/pages/account/updateaccount&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Software\\Jetbrains\\Intellij\\Install\\IntelliJ IDEA 2023.2.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\reviewx_fe_guest_reactjs\src\components\pages\account\updateaccount" />
       <recent name="D:\reviewx_fe_guest_reactjs\src\components\pages\account" />
       <recent name="D:\reviewx_fe_guest_reactjs\src\assets" />
     </key>
@@ -85,7 +81,11 @@
       <workItem from="1703604148257" duration="2271000" />
       <workItem from="1703609052332" duration="4251000" />
       <workItem from="1703640317429" duration="14000" />
-      <workItem from="1703641986020" duration="812000" />
+      <workItem from="1703641986020" duration="1831000" />
+      <workItem from="1703665711886" duration="48000" />
+      <workItem from="1703720041066" duration="1065000" />
+      <workItem from="1703957555395" duration="2921000" />
+      <workItem from="1704014325599" duration="10185000" />
     </task>
     <servers />
   </component>

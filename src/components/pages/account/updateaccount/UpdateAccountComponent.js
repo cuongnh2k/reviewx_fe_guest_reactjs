@@ -1,14 +1,14 @@
-import {Avatar, Card, Flex, Space, Typography} from "antd";
+import {Card, Flex, Typography} from "antd";
 import React, {useEffect, useState} from "react";
-import UseFetch from "../../../../hooks/UseFetch";
 import Api from "../../../../api/Api";
-import {UploadOutlined} from "@ant-design/icons";
-import UpdatePasswordComponent from "./UpdatePasswordComponent";
+import UpdateAvatarComponent from "./UpdateAvatarComponent";
+import UpdatePasswordComponent from "./UpdatePasswordComponent"
+import UseFetch from "../../../../hooks/UseFetch";
+import UpdateNameComponent from "./UpdateNameComponent";
 
 const {Paragraph, Text} = Typography;
-const UpdateAccountComponent = ({onChangeTab}) => {
+const UpdateAccountComponent = ({onChangeTab, messageApi}) => {
     const [data, setData] = useState({loading: false, result: null})
-    const [updateUser, setUpdateUser] = useState({avatar: "", name: "", newPassword: "", oldPassword: ""})
 
     useEffect(() => {
             setData(o => ({...o, loading: true}))
@@ -26,10 +26,6 @@ const UpdateAccountComponent = ({onChangeTab}) => {
         }, []
     )
 
-    const onChangeName = (value) => {
-        setUpdateUser(o => ({...o, name: value}))
-    }
-
     return (
         <Flex
             justify="center"
@@ -41,44 +37,17 @@ const UpdateAccountComponent = ({onChangeTab}) => {
                 }}
             >
 
-                <Flex justify="center">
-                    <Avatar
-                        style={{
-                            width: 150,
-                            height: 150,
-                            border: "1px solid DarkGrey"
-                        }}
-                        src={data.result && data.result.local.avatar || `https://xsgames.co/randomusers/avatar.php?g=pixel&key=2`}
-                    />
-                    <Space align={"end"}>
-                        <UploadOutlined/>
-                    </Space>
-                </Flex>
+                <UpdateAvatarComponent onChangeTab={onChangeTab} data={data} messageApi={messageApi}/>
                 <Flex
                     justify="center"
                     style={{
                         marginTop: 16,
-                        marginBottom: 5
                     }}
                 >
                     <Text>{data.result && data.result.local.email}</Text>
                 </Flex>
-                <Flex
-                    justify="center"
-                >
-                    <Paragraph
-                        editable={{
-                            onChange: onChangeName,
-                        }}
-                    >
-                        {data.result && data.result.local.name}
-                    </Paragraph>
-                </Flex>
-                <Flex
-                    justify="center"
-                >
-                    <UpdatePasswordComponent/>
-                </Flex>
+                <UpdateNameComponent onChangeTab={onChangeTab} data={data} messageApi={messageApi}/>
+                <UpdatePasswordComponent onChangeTab={onChangeTab} messageApi={messageApi}/>
             </Card>
         </Flex>
     )

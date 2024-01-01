@@ -48,7 +48,10 @@ const AccountPage = () => {
             {contextHolder}
             <Divider/>
             {token
-                ? <UpdateAccountComponent onChangeTab={onChangeTab}/>
+                ? <UpdateAccountComponent
+                    onChangeTab={onChangeTab}
+                    messageApi={messageApi}
+                />
                 : (account.activeKey === "reset-password"
                         ? <ResetPasswordComponent
                             onChangeTab={onChangeTab}
