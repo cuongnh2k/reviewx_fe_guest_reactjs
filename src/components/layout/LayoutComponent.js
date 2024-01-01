@@ -14,7 +14,8 @@ const LayoutComponent = ({children}) => {
         setCollapsed(collapsed)
     }
     return (
-        <Layout>
+        <Layout
+        >
             <SiderComponent responseCollapsed={responseCollapsed} collapsed={collapsed}/>
             <ContentComponent clickCollapsed={clickCollapsed} collapsed={collapsed}>
                 {children}

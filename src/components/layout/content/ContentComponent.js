@@ -4,20 +4,19 @@ import AffixComponent from "./affix/AffixComponent";
 
 const {Content} = Layout;
 const ContentComponent = ({children, clickCollapsed, collapsed}) => {
-
     const {
         token: {colorBgContainer},
     } = theme.useToken();
-
     return (
-        <Layout>
+        <Layout
+            style={{
+                background: colorBgContainer
+            }}>
             <AffixComponent clickCollapsed={clickCollapsed} collapsed={collapsed}/>
             <Content>
                 <div
                     style={{
-                        padding: 16,
                         minHeight: 700,
-                        background: colorBgContainer,
                     }}
                 >
                     {children}

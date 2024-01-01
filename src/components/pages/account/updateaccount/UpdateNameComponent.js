@@ -45,7 +45,12 @@ const UpdateNameComponent = ({onChangeTab, data, messageApi}) => {
     };
 
     return (
-        <Flex justify="center">
+        <Flex
+            style={{
+                marginTop: 16,
+            }}
+            justify="center"
+        >
             <Text>{name === "" ? (data.result && data.result.local.name) : name} </Text>
             <Text> <EditOutlined onClick={showModal}/></Text>
             <Modal

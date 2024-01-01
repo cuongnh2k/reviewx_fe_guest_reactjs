@@ -14,7 +14,7 @@ const SearchComponent = ({search}) => {
                 style={{
                     background: "white",
                     marginTop: -1,
-                    padding: "8px 0",
+                    padding: "8px 16px",
                 }}
             >
                 <Search

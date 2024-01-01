@@ -4,6 +4,7 @@ import NoPage from "./components/pages/NoPage";
 import HomePage from "./components/pages/home/HomePage";
 import NotifyPage from "./components/pages/notify/NotifyPage";
 import AccountPage from "./components/pages/account/AccountPage";
+import ProposePage from "./components/pages/propose/ProposePage";
 
 const App = () => {
     return (
@@ -11,7 +12,7 @@ const App = () => {
             <Routes>
                 <Route index element={<HomePage/>}/>
                 <Route path="/account" element={<AccountPage/>}/>
-                <Route path="/propose" element={<NoPage/>}/>
+                <Route path="/propose" element={<ProposePage/>}/>
                 <Route path="/notify" element={<NotifyPage/>}/>
                 <Route path="*" element={<NoPage/>}/>
             </Routes>

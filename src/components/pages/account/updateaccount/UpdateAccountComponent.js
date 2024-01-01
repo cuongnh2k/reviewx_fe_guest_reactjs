@@ -5,6 +5,7 @@ import UpdateAvatarComponent from "./UpdateAvatarComponent";
 import UpdatePasswordComponent from "./UpdatePasswordComponent"
 import UseFetch from "../../../../hooks/UseFetch";
 import UpdateNameComponent from "./UpdateNameComponent";
+import SignOutComponent from "./SignOutComponent";
 
 const {Paragraph, Text} = Typography;
 const UpdateAccountComponent = ({onChangeTab, messageApi}) => {
@@ -48,6 +49,7 @@ const UpdateAccountComponent = ({onChangeTab, messageApi}) => {
                 </Flex>
                 <UpdateNameComponent onChangeTab={onChangeTab} data={data} messageApi={messageApi}/>
                 <UpdatePasswordComponent onChangeTab={onChangeTab} messageApi={messageApi}/>
+                <SignOutComponent onChangeTab={onChangeTab} messageApi={messageApi}/>
             </Card>
         </Flex>
     )

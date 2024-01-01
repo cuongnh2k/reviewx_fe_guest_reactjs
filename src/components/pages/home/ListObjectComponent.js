@@ -1,24 +1,25 @@
-import {Card, Col, Empty, Image, Row, Space, Typography} from "antd";
+import {Card, Col, Empty, Row, Space, Typography} from "antd";
+import {useSearchParams} from "react-router-dom";
 
 const {Paragraph} = Typography;
 const ListObjectComponent = ({data}) => {
 
+    const [, setSearchParams] = useSearchParams();
+
     return (
         (data.result && data.result.content.length !== 0) ?
             <Row
-                style={{
-                    margin: "-16px -8px -16px -8px"
-                }}
             >
                 {data.result && data.result.content.map(o =>
                     <Col
                         key={o.id}
                         className="gutter-row" xs={24} sm={12} md={6} lg={4}
                         style={{
-                            padding: "30px 8px",
+                            padding: "16px",
                         }}
                     >
                         <Card
+                            onClick={() => setSearchParams({objectId: o.id})}
                             style={{
                                 width: "100%",
                             }}

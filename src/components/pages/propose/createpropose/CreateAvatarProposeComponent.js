@@ -1,13 +1,13 @@
 import {Avatar, Button, Flex, Modal, Space, Upload} from "antd";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {UploadOutlined} from "@ant-design/icons";
 import Api from "../../../../api/Api";
-import UseFetch from "../../../../hooks/UseFetch";
+import {useNavigate} from "react-router-dom";
 
-const UpdatePasswordComponent = ({onChangeTab, data, messageApi}) => {
-
+const CreateAvatarProposeComponent = ({onChangeAvatar, url}) => {
     const [open, setOpen] = useState(false);
     const [avatar, setAvatar] = useState("")
+    const navigate = useNavigate();
     const showModal = () => {
         setOpen(true);
     };
@@ -32,33 +32,14 @@ const UpdatePasswordComponent = ({onChangeTab, data, messageApi}) => {
             if (info.file.status === 'done') {
                 if (info.file.response.success) {
                     setAvatar(info.file.response.data.url)
-                    console.log(avatar)
+                    onChangeAvatar(info.file.response.data.url)
                 } else {
                     localStorage.removeItem("token")
-                    onChangeTab("sign-in")
+                    navigate("/account")
                 }
             }
         },
     };
-
-    useEffect(() => {
-            if (avatar !== "") {
-                const fetchAPI = async () => {
-                    const response = await UseFetch(Api.uUsersPATCH, "", JSON.stringify({avatar: avatar}))
-                    const data = await response.json();
-                    if (data.success) {
-                        messageApi.success("Cập nhật ảnh đại diện thành công")
-                    } else {
-                        messageApi.error("Cập nhật ảnh đại diện thất bại")
-                        localStorage.removeItem("token")
-                        onChangeTab("sign-in")
-                    }
-                }
-                fetchAPI()
-            }
-        },
-        [avatar]
-    )
 
     return (
         <Flex
@@ -70,7 +51,7 @@ const UpdatePasswordComponent = ({onChangeTab, data, messageApi}) => {
                     height: 150,
                     border: "1px solid DarkGrey"
                 }}
-                src={avatar === "" ? (data.result && data.result.local.avatar) : avatar}
+                src={avatar || url}
             />
             <Space align={"end"}>
                 <UploadOutlined onClick={showModal}/>
@@ -90,4 +71,4 @@ const UpdatePasswordComponent = ({onChangeTab, data, messageApi}) => {
         </Flex>
     )
 }
-export default UpdatePasswordComponent
+export default CreateAvatarProposeComponent

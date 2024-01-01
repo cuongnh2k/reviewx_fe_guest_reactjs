@@ -55,7 +55,12 @@ const UpdatePasswordComponent = ({onChangeTab, messageApi}) => {
     };
 
     return (
-        <Flex justify="center">
+        <Flex
+            style={{
+                marginTop: 16,
+            }}
+            justify="center"
+        >
             <Text>Mật khẩu</Text>
             <Text> <EditOutlined onClick={showModal}/></Text>
             <Modal

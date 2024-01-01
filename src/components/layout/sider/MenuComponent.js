@@ -1,14 +1,29 @@
-import {Badge, Menu, theme} from "antd";
-import React, {useState} from "react";
+import {Badge, Menu} from "antd";
+import React, {useEffect, useState} from "react";
 import {BellOutlined, BulbOutlined, FormOutlined, UserOutlined} from "@ant-design/icons";
 import {useNavigate} from "react-router-dom";
+import UseFetch from "../../../hooks/UseFetch";
+import Api from "../../../api/Api";
 
 const MenuComponent = () => {
+    const [data, setData] = useState({loading: false, result: null})
     const navigate = useNavigate();
 
-    const {
-        token: {colorBgContainer},
-    } = theme.useToken();
+    useEffect(() => {
+        const fetchAPI = async () => {
+            setData(o => ({...o, loading: true}))
+            const response = await UseFetch(Api.uNotificationsGET,
+                `?pageSize=2147483647`)
+            const data = await response.json();
+            if (data.success) {
+                setData(o => ({...o, loading: false, result: data.data}))
+            } else {
+                localStorage.removeItem("token")
+                navigate(`/account`)
+            }
+        }
+        fetchAPI()
+    }, []);
 
     const items = [
         {
@@ -31,13 +46,12 @@ const MenuComponent = () => {
             key: '/notify',
             icon: (<Badge
                 onClick={() => navigate("/notify")}
-                count={1}
+                count={data.result && data.result.content.filter(o => !o.isRead).length || 0}
                 overflowCount={999}
                 size="small"
             >
                 <BellOutlined
                     style={{
-                        color: colorBgContainer,
                         fontSize: 20
                     }}
                     size={1}

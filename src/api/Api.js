@@ -62,7 +62,7 @@ const Api = {
         method: "GET",
         contentType: "application/json",
     }, uNotificationsIdPUT: {
-        path: "/user/notifications/{id}",
+        path: "/user/notifications",
         method: "PUT",
         contentType: "application/json",
     },
@@ -76,12 +76,17 @@ const Api = {
         method: "GET",
         contentType: "application/json",
     }, uObjectsV1IdPATCH: {
-        path: "/user/objects-v1/{id}",
+        path: "/user/objects-v1",
         method: "PATCH",
         contentType: "application/json",
     }, uObjectsV1POST: {
         path: "/user/objects-v1",
         method: "POST",
+        contentType: "application/json",
+    },
+    uObjectsV1IdDelete: {
+        path: "/user/objects-v1",
+        method: "DELETE",
         contentType: "application/json",
     },
 
@@ -97,7 +102,7 @@ const Api = {
         path: "/user/reviews/{reviewId}/comment",
         method: "PATCH",
         contentType: "application/json",
-    }, uReviewsGETPOST: {
+    }, uReviewsPOST: {
         path: "/user/reviews",
         method: "POST",
         contentType: "application/json",
@@ -106,7 +111,7 @@ const Api = {
         method: "POST",
         contentType: "application/json",
     }, uReviewsIdReactionPOST: {
-        path: "/user/reviews/{reviewId}/reaction",
+        path: "/user/reviews",
         method: "POST",
         contentType: "application/json",
     },
