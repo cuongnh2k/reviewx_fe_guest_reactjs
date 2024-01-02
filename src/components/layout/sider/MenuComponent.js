@@ -18,8 +18,8 @@ const MenuComponent = () => {
             if (data.success) {
                 setData(o => ({...o, loading: false, result: data.data}))
             } else {
-                localStorage.removeItem("token")
-                navigate(`/account`)
+                // localStorage.removeItem("token")
+                // navigate(`/account`)
             }
         }
         fetchAPI()
