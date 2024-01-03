@@ -118,6 +118,10 @@ const UpdateProposeModalComponent = ({item, onRefresh}) => {
                 </div>
             </Form.Item>
             <Form.Item
+            >
+                Ghi chú của admin:
+            </Form.Item>
+            <Form.Item
                 wrapperCol={{
                     offset: 0,
                     span: 24

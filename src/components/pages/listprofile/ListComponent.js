@@ -1,7 +1,6 @@
 import {Avatar, Flex, List} from "antd";
 import React from "react";
-import DeleteProposeComponent from "./DeleteProposeComponent";
-import UpdateProposeUserComponent from "./updatepropose/UpdateProposeUserComponent";
+import DeleteComponent from "./DeleteComponent";
 
 const ListProposeComponent = ({data, onRefresh}) => {
     return (
@@ -24,14 +23,14 @@ const ListProposeComponent = ({data, onRefresh}) => {
                         // onClick={}
                         key={item.id}
                         actions={[
-                            <UpdateProposeUserComponent item={item} onRefresh={onRefresh}/>,
-                            <DeleteProposeComponent item={item} onRefresh={onRefresh}/>
+                            // <UpdateProposeUserComponent item={item} onRefresh={onRefresh}/>,
+                            <DeleteComponent item={item} onRefresh={onRefresh}/>
                         ]}
                     >
                         <List.Item.Meta
-                            avatar={<Avatar style={{width: 48, height: 48}} src={item.avatar}/>}
-                            title={`${item.name}`}
-                            description={new Date(item.updatedAt).toLocaleString()}
+                            avatar={<Avatar style={{width: 48, height: 48}} src={item.local.avatar}/>}
+                            title={`${item.local.name}`}
+                            // description={new Date(item.updatedAt).toLocaleString()}
                         />
                         {/*{item.address}*/}
                     </List.Item>

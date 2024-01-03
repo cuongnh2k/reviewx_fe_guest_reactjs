@@ -5,8 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1179b752-efdf-47bb-a963-682a51fde787" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/pages/listprofile/DeleteComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/listprofile/ListComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/listprofile/ListProfilePage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/listpropose/DeleteProposeComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/listpropose/ListProposeComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/listpropose/ListProposePage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/listpropose/createpropose/CreateAvatarProposeComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/listpropose/createpropose/CreateProposeComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/listpropose/createpropose/TreeSelectObjectComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/listpropose/updatepropose/UpdateProposeModalComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/listpropose/updatepropose/UpdateProposeUserComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/sider/MenuComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/sider/MenuComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/notify/NotifyPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/notify/NotifyPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/propose/ListProposeComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/propose/ListProposeComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/propose/ProposePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/propose/ProposePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/propose/updatepropose/UpdateProposeModalComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/propose/updatepropose/UpdateProposeModalComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,28 +46,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/reviewx_fe_guest_reactjs/src/components/pages/propose/updatepropose&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Software\\Jetbrains\\Intellij\\Install\\IntelliJ IDEA 2023.2.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/reviewx_fe_guest_reactjs/src/components/pages/listprofile",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Software\\Jetbrains\\Intellij\\Install\\IntelliJ IDEA 2023.2.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\reviewx_fe_guest_reactjs\src\components\pages\listprofile" />
+      <recent name="D:\reviewx_fe_guest_reactjs\src\components\pages\listpropose" />
       <recent name="D:\reviewx_fe_guest_reactjs\src\components\pages\propose\updatepropose" />
       <recent name="D:\reviewx_fe_guest_reactjs\src\components\pages\propose\createpropose" />
       <recent name="D:\reviewx_fe_guest_reactjs\src\components\pages\detailhome" />
-      <recent name="D:\reviewx_fe_guest_reactjs\src\components\pages\account\updateaccount" />
-      <recent name="D:\reviewx_fe_guest_reactjs\src\components\pages\account" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\reviewx_fe_guest_reactjs\src\components\pages\propose\updatepropose" />
@@ -85,7 +103,10 @@
       <workItem from="1703957555395" duration="2921000" />
       <workItem from="1704014325599" duration="27254000" />
       <workItem from="1704108573532" duration="26558000" />
-      <workItem from="1704159424830" duration="1045000" />
+      <workItem from="1704159424830" duration="1826000" />
+      <workItem from="1704217201779" duration="162000" />
+      <workItem from="1704285390327" duration="5405000" />
+      <workItem from="1704316740338" duration="5153000" />
     </task>
     <servers />
   </component>

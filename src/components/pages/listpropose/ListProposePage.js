@@ -6,9 +6,8 @@ import UseFetch from "../../../hooks/UseFetch";
 import Api from "../../../api/Api";
 import PaginationComponent from "../../common/PaginationComponent";
 import ListProposeComponent from "./ListProposeComponent";
-import CreateProposeComponent from "./createpropose/CreateProposeComponent";
 
-const ProposePage = () => {
+const ListProposePage = () => {
     const [data, setData] = useState({loading: false, result: null})
     const [search, setSearch] = useState({status: "NEW", name: "", pageNumber: 1, pageSize: 10});
     const navigate = useNavigate();
@@ -19,7 +18,7 @@ const ProposePage = () => {
     useEffect(() => {
         const fetchAPI = async () => {
             setData(o => ({...o, loading: true}))
-            const response = await UseFetch(Api.uObjectsV1GET,
+            const response = await UseFetch(Api.aObjectsV1GET,
                 `?status=${search.status}&categoryId=${categoryId}&pageNumber=${search.pageNumber - 1}&pageSize=${search.pageSize}`)
             const data = await response.json();
             if (data.success) {
@@ -45,7 +44,6 @@ const ProposePage = () => {
     return (
         <LayoutComponent>
             <Divider/>
-            <CreateProposeComponent onRefresh={onRefresh}/>
             <Flex
                 style={{
                     padding: 16
@@ -67,4 +65,4 @@ const ProposePage = () => {
         </LayoutComponent>
     )
 }
-export default ProposePage
+export default ListProposePage

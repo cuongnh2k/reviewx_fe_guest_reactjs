@@ -25,7 +25,7 @@ const ListProposeComponent = ({data, onRefresh}) => {
                         key={item.id}
                         actions={[
                             <UpdateProposeUserComponent item={item} onRefresh={onRefresh}/>,
-                            <DeleteProposeComponent item={item} onRefresh={onRefresh}/>
+                            // <DeleteProposeComponent item={item} onRefresh={onRefresh}/>
                         ]}
                     >
                         <List.Item.Meta

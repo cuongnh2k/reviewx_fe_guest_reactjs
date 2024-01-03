@@ -71,15 +71,30 @@ const Api = {
         path: "/user/objects-v1",
         method: "GET",
         contentType: "application/json",
-    }, uObjectsV1IdGET: {
+    },
+    aObjectsV1GET: {
+        path: "/admin/objects-v1",
+        method: "GET",
+        contentType: "application/json",
+    },
+
+    uObjectsV1IdGET: {
         path: "/user/objects-v1/{id}",
         method: "GET",
         contentType: "application/json",
-    }, uObjectsV1IdPATCH: {
+    },
+    uObjectsV1IdPATCH: {
         path: "/user/objects-v1",
         method: "PATCH",
         contentType: "application/json",
-    }, uObjectsV1POST: {
+    },
+    aObjectsV1IdPATCH: {
+        path: "/admin/objects-v1",
+        method: "PATCH",
+        contentType: "application/json",
+    },
+
+    uObjectsV1POST: {
         path: "/user/objects-v1",
         method: "POST",
         contentType: "application/json",
@@ -120,7 +135,18 @@ const Api = {
         path: "/user/users",
         method: "GET",
         contentType: "application/json",
-    }, uUsersPATCH: {
+    },
+    aUsersDELETE: {
+        path: "/admin/users",
+        method: "DELETE",
+        contentType: "application/json",
+    },
+    aUsersGET: {
+        path: "/admin/users",
+        method: "GET",
+        contentType: "application/json",
+    }
+    , uUsersPATCH: {
         path: "/user/users",
         method: "PATCH",
         contentType: "application/json",

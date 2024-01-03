@@ -52,6 +52,15 @@ const NotifyPage = () => {
     const onChange = (page, pageSize) => {
         setSearch(o => ({...o, pageNumber: page, pageSize: pageSize}))
     }
+
+    window.addEventListener('load', function () {
+        // Your document is loaded.
+        var fetchInterval = 3000; // 5 seconds.
+
+        // Invoke the request every 5 seconds.
+        setInterval(() => setRefresh(Math.random), fetchInterval);
+    });
+
     return (
         <LayoutComponent>
             <Divider/>

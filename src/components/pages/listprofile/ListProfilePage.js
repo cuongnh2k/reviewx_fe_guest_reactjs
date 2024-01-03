@@ -5,22 +5,22 @@ import {useNavigate, useSearchParams} from "react-router-dom";
 import UseFetch from "../../../hooks/UseFetch";
 import Api from "../../../api/Api";
 import PaginationComponent from "../../common/PaginationComponent";
-import ListProposeComponent from "./ListProposeComponent";
-import CreateProposeComponent from "./createpropose/CreateProposeComponent";
+import ListComponent from "./ListComponent";
 
-const ProposePage = () => {
+const ListProfilePage = () => {
     const [data, setData] = useState({loading: false, result: null})
-    const [search, setSearch] = useState({status: "NEW", name: "", pageNumber: 1, pageSize: 10});
+    const [search, setSearch] = useState({isActive: true, name: "", pageNumber: 1, pageSize: 10});
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const categoryId = searchParams.get("categoryId") || ""
     const [refresh, setRefresh] = useState(Math.random)
+    const [status, setStatus] = useState(true)
 
     useEffect(() => {
         const fetchAPI = async () => {
             setData(o => ({...o, loading: true}))
-            const response = await UseFetch(Api.uObjectsV1GET,
-                `?status=${search.status}&categoryId=${categoryId}&pageNumber=${search.pageNumber - 1}&pageSize=${search.pageSize}`)
+            const response = await UseFetch(Api.aUsersGET,
+                `?isActive=${search.isActive}&pageNumber=${search.pageNumber - 1}&pageSize=${search.pageSize}`)
             const data = await response.json();
             if (data.success) {
                 setData(o => ({...o, loading: false, result: data.data}))
@@ -40,12 +40,12 @@ const ProposePage = () => {
         setRefresh(Math.random)
     }
     const onChangeStatus = (e) => {
-        setSearch(o => ({...o, status: e.target.value}))
+        setSearch(o => ({...o, isActive: e.target.value}))
+        setStatus(e.target.value)
     };
     return (
         <LayoutComponent>
             <Divider/>
-            <CreateProposeComponent onRefresh={onRefresh}/>
             <Flex
                 style={{
                     padding: 16
@@ -54,17 +54,16 @@ const ProposePage = () => {
             >
                 <Radio.Group
                     onChange={onChangeStatus}
-                    value={search.status}
+                    value={status}
                 >
-                    <Radio value={"NEW"}>Mới</Radio>
-                    <Radio value={"SUCCESS"}>Thành công</Radio>
-                    <Radio value={"REJECT"}>Từ chối</Radio>
+                    <Radio value={true}>Đã kích hoạt</Radio>
+                    <Radio value={false}>Chưa kích hoạt</Radio>
                 </Radio.Group>
             </Flex>
-            <ListProposeComponent data={data} onRefresh={onRefresh}/>
+            <ListComponent data={data} onRefresh={onRefresh}/>
             <PaginationComponent data={data} onChange={onChange}/>
             <div style={{marginBottom: 20}}></div>
         </LayoutComponent>
     )
 }
-export default ProposePage
+export default ListProfilePage
